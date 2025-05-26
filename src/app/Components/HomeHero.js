@@ -13,11 +13,7 @@ function HomeHero() {
     setX((e.clientX - container.current.getBoundingClientRect().x - container.current.getBoundingClientRect().width/2)/40)
     setY(-(e.clientY - container.current.getBoundingClientRect().y - container.current.getBoundingClientRect().height/2)/10)
   }
-  useEffect(()=>{
-    console.log(x,y);
-  },[x,y])
-    
-
+  
   useGSAP(function(){
     gsap.to(container.current,{
       transform: `rotateX(${y}deg) rotateY(${x}deg)`,
