@@ -19,6 +19,10 @@ function Nav() {
         width: "70%",
         duration: .2,
       })
+      gsap.to(menuNavBack.current, {
+        width: "100%",
+        duration: .2,
+      })
       setIndexMenue(1);
       gsap.to(menu.current, {
         fontSize: 0,
@@ -35,6 +39,10 @@ function Nav() {
   const onClickCancel = () => {
     if (indexMenue == 1) {
       gsap.to(menuNav.current, {
+        width: "0%",
+        duration: .2,
+      })
+      gsap.to(menuNavBack.current, {
         width: "0%",
         duration: .2,
       })
@@ -63,12 +71,12 @@ function Nav() {
   })
   return (
     <>
-      <div ref={pcNav} className="w-full sm:flex  hidden justify-center items-center z-20 pt-[2vw] fixed top-0">
+      <div ref={pcNav}  className="w-full sm:flex  hidden justify-center items-center z-10 pt-[2vw] fixed top-0">
         <div className=" px-[5vw] w-[60vw] py-6 items-center flex justify-between bg-white/10 backdrop-blur-md  rounded-[50px]">
           <div className=" text-3xl font-bold text-[#0A84FF]">
             <h1> Logo</h1>
           </div>
-          <div className="flex tex-lg text-[#e6e6e6] font-semibold gap-5">
+          <div className="flex text-xl text-[#e6e6e6] font-semibold gap-5">
             <Link href={"/"} className="hover:text-blue-400 hover:scale-110 transition">Home</Link>
             <Link href={"#"} className="hover:text-blue-400 hover:scale-110 transition">About Us</Link>
             <Link href={"#"} className="hover:text-blue-400 hover:scale-110 transition">Contact Us</Link>
@@ -86,8 +94,8 @@ function Nav() {
         </div>
       </div>
       
-      <div ref={menuNavBack} className='sm:hidden flex justify-end fixed  z-20 w-screen  h-screen'>
-        <div ref={menuNav} className='w-[0%] overflow-hidden  text-2xl gap-5 font-semibold bg-white/10 backdrop-blur-md  text-[#e6e6e6] z-40 flex flex-col justify-center items-center h-screen'>
+      <div ref={menuNavBack} onClick={onClickCancel} className='sm:hidden flex justify-end fixed right-0 z-20 w-[0%]  h-screen'>
+        <div ref={menuNav}  onClick={(e) => e.stopPropagation()} className='w-[0%]  overflow-hidden  text-2xl gap-5 font-semibold bg-white/10 backdrop-blur-md  text-[#e6e6e6] z-40 flex flex-col justify-center items-center h-screen'>
           <Link href={"/"} onClick={onClickCancel} className="hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition">Home</Link>
           <Link href={"#"} onClick={onClickCancel} className="hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition">About Us</Link>
           <Link href={"#"} onClick={onClickCancel} className="hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition">Contact Us</Link>
