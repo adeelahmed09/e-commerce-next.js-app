@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const connection = {}
 async function ConnectDB() {
-    if(connection.isConnected){
+    if(connection?.isConnected){
         console.log("Already Connected To DataBase");
         return
     }
