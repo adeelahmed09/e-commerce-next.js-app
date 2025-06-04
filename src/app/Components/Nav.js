@@ -4,9 +4,11 @@ import Link from "next/link"
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
+import { usePathname } from 'next/navigation'
 
 function Nav() {
   gsap.registerPlugin()
+  const pathName = usePathname()
   const [indexMenue, setIndexMenue] = useState(0)
   const menu = useRef(null)
   const cancel = useRef(null)
@@ -77,8 +79,8 @@ function Nav() {
             <h1> Logo</h1>
           </div>
           <div className="flex text-xl text-[#e6e6e6] font-semibold gap-5">
-            <Link href={"/"} className="hover:text-blue-400 hover:scale-110 transition">Home</Link>
-            <Link href={"#"} className="hover:text-blue-400 hover:scale-110 transition">About Us</Link>
+            <Link href={"/"} className={ `hover:text-[#0A84FF] hover:scale-110 transition ${pathName==="/"?"text-[#0A84FF]":null}`}>Home</Link>
+            <Link href={"#aboutus"}  className={ `hover:text-[#0A84FF] hover:scale-110 transition ${pathName==="/#aboutus"?"text-[#0A84FF]":null}`}>About Us</Link>
             <Link href={"#"} className="hover:text-blue-400 hover:scale-110 transition">Contact Us</Link>
           </div>
         </div>
