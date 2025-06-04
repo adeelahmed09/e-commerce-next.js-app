@@ -93,7 +93,7 @@ function page() {
                             return
                         }
                     } catch (error) {
-                        alert(error)
+                        alert(error.response.data.error)
                         setImgUrl("/noProfile.png")
                         setRAWformData({
                             name: "",
@@ -151,7 +151,7 @@ function page() {
                 return
             }
         } catch (error) {
-            alert(error)
+            alert(error.response.data.error)
             setRAWformData({
                 name: "",
                 files: "/noProfile.png",
