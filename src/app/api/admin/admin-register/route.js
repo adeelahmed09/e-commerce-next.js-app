@@ -2,9 +2,15 @@ import ConnectDB from "@/libs/ConnectDB";
 import Admin from "@/models/admin.models";
 import User from "@/models/user.models";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../auth/[...nextauth]/options";
 const response = NextResponse
 export async function POST(req) {
     try {
+        const session = await getServerSession(authOptions);
+        if (session?.user?.role !== "admin") {
+            return NextResponse.json({ error: "You are not Authorized" }, { status: 402 });
+        }
         const { name, email, password, files } = await req.json();
         console.log(name, email, files, password);
         if (!name || !email || !password || !files) {
@@ -40,9 +46,9 @@ export async function POST(req) {
         if (!createdAdmin) {
             return response.json({ error: "SomeThing Went Worng During Creating User Please Try Agian" }, { status: 500 });
         }
-        return response.json({user:createdAdmin},{status:200});
+        return response.json({ user: createdAdmin }, { status: 200 });
     } catch (error) {
         console.log(error);
-        return response.json({error:error},{status:500});
+        return response.json({ error: error }, { status: 500 });
     }
 }

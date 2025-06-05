@@ -23,7 +23,6 @@ function page() {
         role: session.user.role,
         id: session.user.id
       })
-      console.log(session);
     }
   }, [status]);
   const getAllAdmins = async () => {
@@ -42,8 +41,8 @@ function page() {
     getAllAdmins()
   },[userDetails])
   const renderAllAdmins =() => {
-    return allAdmins.map((admin)=>(
-      <div className='text-sm w-full flex sm:flex-row flex-col  justify-center sm:gap-5 gap-3 items-center border-2 border-gray-700 rounded-2xl py-2 px-4'>
+    return allAdmins.map((admin,index)=>(
+      <div key={index} className='text-sm w-full flex sm:flex-row flex-col  justify-center sm:gap-5 gap-3 items-center border-2 border-gray-700 rounded-2xl py-2 px-4'>
         <div>
           <img src={admin.avatar} className='w-16 h-16 rounded-full object-cover object-center' alt="" />
         </div>

@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from 'react'
 function page() {
 
     const [visble, setVisble] = useState(false)
-    const [imgUrl, setImgUrl] = useState("/noProfile.png")
+    const [imgUrl, setImgUrl] = useState("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
     const [process, setProcess] = useState(false)
     const visible = useRef(null)
     const hidden = useRef(null)
@@ -15,7 +15,7 @@ function page() {
     const loaderBack = useRef(null)
     const [RAWformData, setRAWformData] = useState({
         name: "",
-        files: "/noProfile.png",
+        files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
         email: "",
         password: "",
     })
@@ -39,14 +39,14 @@ function page() {
         if (files[0].size > 2. * 1024 * 1024) {
             alert("Image must be under 2MB")
             e.target.value = ""
-            setRAWformData({ ...RAWformData, files: "/noProfile.png" })
-            setImgUrl("/noProfile.png")
+            setRAWformData({ ...RAWformData, files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png" })
+            setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
             return
         }
         if ((files[0].type !== "image/png" && files[0].type !== "image/jpeg" && files[0].type !== "image/webp")) {
             alert("Please Add Correct Image type")
-            setImgUrl("/noProfile.png")
-            setRAWformData({ ...RAWformData, files: "/noProfile.png" })
+            setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
+            setRAWformData({ ...RAWformData, files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png" })
             e.target.value = ""
             return
         }
@@ -61,7 +61,7 @@ function page() {
             alert("Name , Email and Password Are required!!")
             setProcess(false)
         }
-        if (RAWformData.files && RAWformData.files != "/noProfile.png") {
+        if (RAWformData.files && RAWformData.files != "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png") {
             console.log("enter");
             const formData = new FormData();
             formData.append("file", RAWformData.files)
@@ -83,10 +83,10 @@ function page() {
                         if (result.data.user) {
                             alert("Successfully Sign Up")
                             setProcess(false)
-                            setImgUrl("/noProfile.png")
+                            setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
                             setRAWformData({
                                 name: "",
-                                files: "/noProfile.png",
+                                files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
                                 email: "",
                                 password: "",
                             })
@@ -94,10 +94,10 @@ function page() {
                         }
                     } catch (error) {
                         alert(error.response.data.error)
-                        setImgUrl("/noProfile.png")
+                        setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
                         setRAWformData({
                             name: "",
-                            files: "/noProfile.png",
+                            files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
                             email: "",
                             password: "",
                         })
@@ -108,10 +108,10 @@ function page() {
                 }
                 else {
                     alert("Something Went Wrong During Image Uploading Please Try Again!!")
-                    setImgUrl("/noProfile.png")
+                    setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
                     setRAWformData({
                         name: "",
-                        files: "/noProfile.png",
+                        files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
                         email: "",
                         password: "",
                     })
@@ -120,10 +120,10 @@ function page() {
                 }
             } catch (error) {
                 alert(`Error: Please Check Your Network :Something Went Wrong During Image Uploading Please Try Again!!`)
-                setImgUrl("/noProfile.png")
+                setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
                 setRAWformData({
                     name: "",
-                    files: "/noProfile.png",
+                    files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
                     email: "",
                     password: "",
                 })
@@ -141,10 +141,10 @@ function page() {
             if (result.data.user) {
                 alert("Successfully Sign Up")
                 setProcess(false)
-                setImgUrl("/noProfile.png")
+                setImgUrl("https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png")
                 setRAWformData({
                     name: "",
-                    files: "/noProfile.png",
+                    files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
                     email: "",
                     password: "",
                 })
@@ -154,7 +154,7 @@ function page() {
             alert(error.response.data.error)
             setRAWformData({
                 name: "",
-                files: "/noProfile.png",
+                files: "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png",
                 email: "",
                 password: "",
             })
