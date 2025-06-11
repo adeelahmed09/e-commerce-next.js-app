@@ -1,35 +1,40 @@
-import { Schema,models,model } from "mongoose";
+import { Schema, models, model } from "mongoose";
 
 const productSchema = new Schema(
     {
-        title:{
-            required:true,
-            type:String,
-            unique:true
+        title: {
+            required: true,
+            type: String,
+            unique: true
         },
-        desc:{
-            required:true,
-            type:String,
+        desc: {
+            required: true,
+            type: String,
         },
-        stock:{
-            required:true,
-            type:Number,
+        stock: {
+            required: true,
+            type: Number,
             min: 0,
         },
-        publish:{
-            type:Boolean,
-            required:true,
+        publish: {
+            type: Boolean,
+            required: true,
             default: false,
         },
-        image:{
-            type:String,
-            required:true
+        image: {
+            type: String,
+            required: true
+        },
+        price: {
+            required: true,
+            type: Number,
+            min: 0,
         }
     },
     {
-        timestamps:true
+        timestamps: true
     }
 )
 
-const Product = models.Product || model("Product",productSchema);
+const Product = models.Product || model("Product", productSchema);
 export default Product

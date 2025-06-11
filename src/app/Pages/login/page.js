@@ -7,10 +7,10 @@ import { useGSAP } from '@gsap/react'
 function page() {
     const router = useRouter()
     const [displayPassword, setDisplayPassword] = useState(false)
+    const [process, setProcess] = useState(false)
     const visible = useRef(null)
     const hidden = useRef(null)
     const loader = useRef(null)
-    const [process, setProcess] = useState(false)
     const loaderBack = useRef(null)
     const [formData, setFormData] = useState(
         {

@@ -1,4 +1,4 @@
-import { authOptions } from "../../auth/[...nextauth]/options";
+import { authOptions } from "../../../auth/[...nextauth]/options.js";
 import { NextResponse } from "next/server";
 import Product from "@/models/product.model";
 import ConnectDB from "@/libs/ConnectDB";   
@@ -11,8 +11,9 @@ export async function POST(req){
         return NextResponse.json({error:"You are not Authorized"},{status:401});
     }
     try {
-        const {title,desc,stock,image,publish} = await req.json();
-        if(!title || !desc || !stock || !image || !publish){
+        const {title,desc,stock,image,publish,price} = await req.json();
+        console.log(title,stock,image,publish,price);
+        if(!title || !desc || !image ){
             return NextResponse.json({error:"All fields are required!!"},{status:401});
         }
         await ConnectDB();
@@ -25,7 +26,8 @@ export async function POST(req){
             stock,
             desc,
             publish,
-            image
+            image,
+            price
         })
         if(!product){
             return NextResponse.json({error:"Something went wrong during creating product || Try Again !!"},{status:502});

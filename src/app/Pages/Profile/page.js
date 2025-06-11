@@ -58,7 +58,7 @@ function page() {
     else {
         return (
             <>
-            <div className="mt-[2vw] w-full px-[5vw] pt-[94px]">
+            <div className="mt-[2vw] px-[5vw] pt-[94px] w-full">
                 <div className="w-full sm:p-6 p-2 ">
                     <div className="w-full border p-4 flex sm:flex-row flex-col items-center justify-between sm:items-end h-fit rounded-lg shadow-md border-gray-700 ">
                         <div className="flex sm:flex-row flex-col items-center  p-6 gap-2">

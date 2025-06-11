@@ -62,7 +62,6 @@ function page() {
             setProcess(false)
         }
         if (RAWformData.files && RAWformData.files != "https://res.cloudinary.com/dsgftijpe/image/upload/v1749150289/noProfile_edobmf.png") {
-            console.log("enter");
             const formData = new FormData();
             formData.append("file", RAWformData.files)
             try {
