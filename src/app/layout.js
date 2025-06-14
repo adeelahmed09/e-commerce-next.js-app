@@ -1,3 +1,4 @@
+import CartFE from "./Components/Cart";
 import Nav from "./Components/Nav";
 import "./globals.css";
 import Providers from "./provider/page";
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <Providers>
         <Nav/>
         {children}
+        <CartFE/>
         </Providers>
       </body>
     </html>

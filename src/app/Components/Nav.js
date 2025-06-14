@@ -94,6 +94,7 @@ function Nav() {
         <div className=' absolute left-5 text-2xl px-3 py-2 rounded-full bg-white/10 backdrop-blur-md   font-thin text-[#0A84FF] '>
            <Link href={"../pages/profile"}><i className="ri-user-line"></i></Link>
         </div>
+        
       </div>
       
       <div ref={menuNavBack} onClick={onClickCancel} className='sm:hidden flex justify-end fixed right-0 z-20 w-[0%]  h-screen'>
