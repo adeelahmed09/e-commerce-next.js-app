@@ -100,7 +100,7 @@ function Nav() {
       <div ref={menuNavBack} onClick={onClickCancel} className='sm:hidden flex justify-end fixed right-0 z-20 w-[0%]  h-screen'>
         <div ref={menuNav}  onClick={(e) => e.stopPropagation()} className='w-[0%]  overflow-hidden  text-2xl gap-5 font-semibold bg-white/10 backdrop-blur-md  text-[#e6e6e6] z-40 flex flex-col justify-center items-center h-screen'>
           <Link href={"/"} onClick={onClickCancel} className={`hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition ${pathName==="/"?"text-[#0A84FF]":null}`}>Home</Link>
-          <Link href={"/pages/shop"} onClick={onClickCancel}className={`hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition ${pathName==="/pages/shop"?"text-[#0A84FF]":null}`}>Shop</Link>
+          <Link href={"/shop"} onClick={onClickCancel}className={`hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition ${pathName==="/pages/shop"?"text-[#0A84FF]":null}`}>Shop</Link>
           <Link href={"#"} onClick={onClickCancel} className="hover:text-blue-400 w-[70vw] text-center hover:scale-110 transition">Contact Us</Link>
         </div>
       </div>
