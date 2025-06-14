@@ -1,8 +1,0 @@
-[build]
-  command = "npm run build"
-
-[[plugins]]
-  package = "@netlify/next"
-
-[build.environment]
-  NODE_VERSION = "20"
