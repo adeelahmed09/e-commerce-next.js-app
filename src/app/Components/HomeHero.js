@@ -2,10 +2,28 @@
 
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { useSession } from "next-auth/react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 function HomeHero() {
+  const { data: session, status } = useSession();
+    const [userDetails, setUserDetails] = useState(
+        {
+
+        }
+    )
+    useEffect(() => {
+        if (status === "authenticated") {
+            setUserDetails({
+                name: session.user.name,
+                email: session.user.email,
+                avatar: session.user.avatar,
+                role: session.user.role,
+                id: session.user.id
+            })
+        }
+    }, [status]);
   const container = useRef(null)
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
