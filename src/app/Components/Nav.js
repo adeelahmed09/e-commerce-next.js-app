@@ -80,7 +80,7 @@ function Nav() {
           </div>
           <div className="flex text-lg text-[#e6e6e6] font-semibold gap-5">
             <Link href={"/"} className={ `hover:text-[#0A84FF] hover:scale-110 transition ${pathName==="/"?"text-[#0A84FF]":null}`}>Home</Link>
-            <Link href={"/pages/shop"}  className={ `hover:text-[#0A84FF] hover:scale-110 transition ${pathName==="/pages/shop"?"text-[#0A84FF]":null}`}>Shop</Link>
+            <Link href={"/shop"}  className={ `hover:text-[#0A84FF] hover:scale-110 transition ${pathName==="/pages/shop"?"text-[#0A84FF]":null}`}>Shop</Link>
             <Link href={"#"} className="hover:text-blue-400 hover:scale-110 transition">Contact Us</Link>
           </div>
         </div>
