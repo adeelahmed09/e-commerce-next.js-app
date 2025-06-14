@@ -40,7 +40,7 @@ function page() {
           </h3>
           <div className='w-full flex justify-end items-center'>
             <button className='flex items-center justify-center'>
-              <Link href={{ pathname: "/pages/product", query: { id: product._id } }} className='px-2 py-1 text-white bg-orange-500 text-lg font-semibold rounded-md '>Buy Now</Link>
+              <Link href={{ pathname: "/product", query: { id: product._id } }} className='px-2 py-1 text-white bg-orange-500 text-lg font-semibold rounded-md '>Buy Now</Link>
             </button>
           </div>
         </div>

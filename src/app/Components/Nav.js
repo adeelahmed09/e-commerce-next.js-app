@@ -85,14 +85,14 @@ function Nav() {
           </div>
         </div>
         <div className=' absolute right-12 text-2xl px-3 py-2 rounded-full bg-white/10 backdrop-blur-md   font-thin text-[#0A84FF] '>
-           <Link href={"../pages/profile"}><i className="ri-user-line"></i></Link>
+           <Link href={"/profile"}><i className="ri-user-line"></i></Link>
         </div>
       </div>
       <div className=" fixed top-0 sm:hidden px-4 z-30   w-full pt-4">
         <i ref={menu} onClick={onClickMenuHandler} className="ri-menu-3-line  absolute right-5 text-4xl text-[#0A84FF]"></i>
         <i ref={cancel} onClick={onClickCancel} className=" text-[#0A84FF]  absolute right-5  text-0 opacity-0 ri-close-large-line"></i>
         <div className=' absolute left-5 text-2xl px-3 py-2 rounded-full bg-white/10 backdrop-blur-md   font-thin text-[#0A84FF] '>
-           <Link href={"../pages/profile"}><i className="ri-user-line"></i></Link>
+           <Link href={"/profile"}><i className="ri-user-line"></i></Link>
         </div>
         
       </div>
