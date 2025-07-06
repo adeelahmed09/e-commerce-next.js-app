@@ -4,13 +4,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct, setCart } from '@/slice/cartSlice';
 import { useSession } from 'next-auth/react';
 import store from '@/store/store';
 function ProductPage() {
     const dispatch  = useDispatch()
     const { data: session, status } = useSession();
+    const { totalProduct, totalPrice, products } = useSelector((state) => state.cart || {})
     const [userDetails, setUserDetails] = useState(
             {
     
@@ -84,11 +85,19 @@ function ProductPage() {
     useEffect(() => {
         console.log(product);
     }, [product])
-    
+    const productCart = products?.find(e => e._id === product._id)
     const onChangeQunatity = (e)=>{
         const {value} = e.target;
-        const intValue = parseInt(value)
-        if(intValue > product.stock){
+        let intValue = parseInt(value)
+        if(isNaN(intValue)){
+            intValue = 0
+        }
+        console.log(intValue);
+        if(productCart?.quantity+intValue>5){
+            alert("You already have Products in cart")
+            return
+        }
+        else if(intValue > product.stock){
             alert("Stock is not available")
             return
         }
@@ -103,6 +112,10 @@ function ProductPage() {
     const addProductCart =()=>{
         if (status !== "authenticated"){
             alert("Please Sign In")
+            return
+        }
+        if(productCart?.quantity+productQunatity>5){
+            alert("You already have Products in cart")
             return
         }
         const previousCart = store.getState().cart
@@ -123,6 +136,10 @@ function ProductPage() {
             dispatch(setCart(previousCart))
         }
     }
+    useEffect(()=>{
+        const productCart = products?.find(e => e._id === product._id)
+        console.log(productCart,productCart?.quantity);
+    },[products])
     return (
         <div className=' relative w-full overflow-hidden'>
             <div ref={loaderBack} className='bg-white/10 flex backdrop-blur-md w-full h-screen fixed  items-center justify-center top-0 right-0 '>

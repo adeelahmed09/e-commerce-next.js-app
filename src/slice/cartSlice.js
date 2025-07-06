@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    products: [],
+    products: [{}],
     totalPrice: 0,
     totalProduct: 0,
 };
@@ -12,9 +12,10 @@ export const cartSlice = createSlice({
     reducers: {
         addProduct: (state, action) => {
             const productToAdd = action.payload.product;
-            const productQuantity = productToAdd.quantity || 1;
-            if (!state.products) {
-                state.products = [{ ...productToAdd, quantity: productQuantity }];
+            const productQuantity = productToAdd.quantity || 1;            
+            if (!state?.products) {
+                state = {...state,products:[]}
+                state.products.push({ ...productToAdd, quantity: productQuantity });
             } else {
                 const existingProduct = state.products.find(
                     product => product._id === productToAdd._id
@@ -27,7 +28,7 @@ export const cartSlice = createSlice({
                 }
             }
             state.totalProduct += productQuantity;
-            if (!state.totalPrice) {
+            if (!state?.totalPrice) {
                 state.totalPrice = productToAdd.price * productQuantity;
             } else {
                 state.totalPrice += productToAdd.price * productQuantity;
@@ -38,11 +39,29 @@ export const cartSlice = createSlice({
             state.totalPrice -= action.payload.productAmount
             state.totalPrice -= action.payload.productPrice
         },
-        setCart:(state,action)=>{
+        setCart: (state, action) => {
             return action.payload
+        },
+        changeQuantity: (state, action) => {
+            const productTochange = state.products.find(product => product._id === action.payload.id)
+            const quantityChanged = action.payload.intQuantity - productTochange?.quantity
+            console.log(quantityChanged);
+            if (productTochange) {
+                productTochange.quantity = action.payload.intQuantity;
+            }
+            if (quantityChanged > 0) {
+                console.log(quantityChanged);
+                state.totalProduct += quantityChanged;
+                state.totalPrice += productTochange.price * quantityChanged;
+            }
+            else {
+                console.log(quantityChanged);
+                state.totalProduct += quantityChanged;
+                state.totalPrice += productTochange.price * quantityChanged;
+            }
         }
     }
 })
 
-export const { addProduct, reduceProduct,setCart } = cartSlice.actions
+export const { addProduct, reduceProduct, setCart, changeQuantity } = cartSlice.actions
 export default cartSlice.reducer

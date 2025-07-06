@@ -27,6 +27,7 @@ function page() {
     }
     useEffect(() => {
         if (status === "authenticated") {
+            console.log(status);
             setSignUp(true);
             setUserDetails({
                 name: session.user.name,

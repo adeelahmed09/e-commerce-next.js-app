@@ -22,7 +22,7 @@ function AboutUs() {
               <li className='sm:col-span-2'><span>⭐</span> Quality Products</li>
             </ul>
             <div className='mt-3'>
-              <button className='bg-[#0A84FF] text-white px-3 py-1 rounded-md font-semibold'><Link href="/pages/shop">Start Shopping</Link></button>
+              <button className='bg-[#0A84FF] text-white px-3 py-1 rounded-md font-semibold'><Link href="/shop">Start Shopping</Link></button>
             </div>
           </div>
           <div>

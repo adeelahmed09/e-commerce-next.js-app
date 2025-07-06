@@ -29,7 +29,6 @@ function CartFE() {
   }, [status]);
   useEffect(() => {
     setproductAmount(totalProduct)
-    console.log(totalProduct, totalPrice, products);
   }, [totalProduct])
 
   useEffect(() => {
@@ -44,8 +43,8 @@ function CartFE() {
       })
   }, [session])
   return (
-    <div className='fixed  bottom-7  right-12 text-2xl px-3 py-2 rounded-full bg-white/10 backdrop-blur-md   font-thin text-[#0A84FF]'>
-      <Link href={"#"}><i className="ri-shopping-cart-line text-2xl"></i></Link>
+    <div className='fixed  sm:bottom-7  sm:right-10 top-4  left-20 text-2xl px-3 py-2 rounded-full bg-white/10 backdrop-blur-md   font-thin text-[#0A84FF]'>
+      <Link href={"/cart"}><i className="ri-shopping-cart-line text-2xl"></i></Link>
       <h1 className='text-white text-sm absolute bg-red-600 px-2 text-center top-2 right-2 rounded-full'>
         {productAmount}
       </h1>

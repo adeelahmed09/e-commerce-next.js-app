@@ -5,6 +5,9 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
     const { product, userid, } =await req.json();
+    if(!product){
+        return NextResponse.json({ error: "Product is not preasent" }, { status: 500 })
+    }
     console.log(product,userid);
     const productToAdd = product
     try {

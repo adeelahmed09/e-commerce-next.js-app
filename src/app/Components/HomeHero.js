@@ -33,7 +33,7 @@ function HomeHero() {
           For The <span className="text-[#0A84FF]">Future</span>
         </h1>
         <p className="z-10 sm:leading-[8vw] leading-5 mt-2 sm:text-xl text-lg  tracking-tight font-medium  text-[#e6e6e6] font-[space]">{"Everything you need. Nothing you don't. Discover the essentials."}</p>
-        <Link href={"/pages/shop"} className="z-10 sm:text-xl text-md mt-2 bg-[#0A84FF] w-fit px-3 py-2 rounded-lg flex justify-center items-center font-bold text-[#ffff] ">Shop Now</Link>
+        <Link href={"/shop"} className="z-10 sm:text-xl text-md mt-2 bg-[#0A84FF] w-fit px-3 py-2 rounded-lg flex justify-center items-center font-bold text-[#ffff] ">Shop Now</Link>
       </div>
       <img src="https://res.cloudinary.com/dsgftijpe/image/upload/f_auto,q_auto/HeroBgMobile_xxjmoc.png" className=" top-0 sm:hidden absolute w-screen object-cover left-0 brightness-70 -z-0 h-screen" alt="" />
     </div>
